@@ -2,6 +2,9 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
 
 input[type=text]{        
  
@@ -10,8 +13,7 @@ input[type=text]{
 
 
 
-.round_center
-{
+.round_center{
     position: absolute;
     text-align: center;
     width: 200px;
@@ -39,9 +41,7 @@ button {
 button:hover{
     background-color:#808080;
 }
-label:hover{
-    color:#db1313;
-}
+
 
 h1 {
     font-size: 40px;
@@ -51,7 +51,7 @@ h1 {
     color: black;
 }
 h2 {
-    font-size: 30px;
+    font-size: 33px;
     font-weight: bold;
     
     padding: 10px;
@@ -59,10 +59,15 @@ h2 {
     color: black;
 }
 h3 {
-    font-size: 20px;
+    font-size: 22px;
     text-align: left;
     
     padding: 10px;
+    color: black;
+}
+
+h4 {
+    font-size: 14px;
     color: black;
 }
 
@@ -70,14 +75,36 @@ p {
     font-size: 16px;
 }
 
-.sidebox{
-    float:left;
-    width:20%;
+.sidebox {
+
+    width: 20%;
+    position: fixed;
+    z-index: 2;
+    height: 100%
+    overflow: auto;
+    background-color: #a8a8a8
     
 }
 
+.sidebox a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebox a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+.sidebox a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+
 .mainbox{
-    float:left;
+    float:right;
     width: 80%;
     padding-left:20px;
 }
@@ -86,6 +113,7 @@ p {
     background-color:ghostwhite;
     padding: 20px;
     margin-top:20px;
+
 }
 
 .row::after
@@ -101,3 +129,61 @@ p {
     padding:5px;
 }
 
+
+/*This is all for the nav bar movement
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+
+ends gere*/
+
+
+
+/*
+
+@media screen and (max-width: 800px) {
+    .sidebox {
+        float: left;
+        width: 100%;
+    }
+
+    .mainbox {
+        float: left;
+        width: 100%;
+        padding-left: 20px;
+    }
+
+    .column { 
+        float: left;
+        width: 33%;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebox {
+        float: left;
+        width: 100%;
+    }
+
+    .mainbox {
+        float: left;
+        width: 100%;
+        padding-left: 20px;
+    }
+
+    .column { 
+        float: left;
+        width: 50%;
+        padding: 5px;
+    }
+}
+*/
