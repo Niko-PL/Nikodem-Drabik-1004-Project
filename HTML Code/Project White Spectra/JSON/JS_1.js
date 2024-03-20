@@ -1,18 +1,37 @@
 // JavaScript source code
 
+function Password_Option1(Pass_Split) {
+
+    for (let i = 0; i < Pass_Split.length; i++) {
+
+        if (Pass_Split[i] == " ") {
+            Pass_Split[i] = "_"
+            console.log(Pass_Split[i])
+        }
+
+    }
+    alert(Pass_Split);
+
+    Pass_Split.toString()
+
+    return Pass_Split.join("")
+}
+
 function Password_Button() {
 
     const User_Input = document.getElementById("User_Input");   //address is stored
 
-    String String_Input = User_Input
+    var String_Input = User_Input.value.toString();
 
-    String_Input = String_Input + "Hi 123"
+    var Pass_Split = String_Input.split("");        //split user input into array to do sting manipulation
 
-     document.getElementById("User_Output").innerHTML = String_Input.value;   //address is sent out
+    var Password_Encrypt = Password_Option1(Pass_Split);
+
+    document.getElementById("User_Output").innerHTML = Password_Encrypt;   //address is sent out
     
 
 
-    alert("done")
+    //alert(Pass_Split[0]);
 }
 
 /*
