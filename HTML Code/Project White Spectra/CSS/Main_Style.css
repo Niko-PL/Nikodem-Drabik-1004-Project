@@ -25,11 +25,12 @@ input[type=text]{
 
 
 body {
-    background-color:gainsboro;
-    padding:10px;
-    margin:0;
+    background-image: linear-gradient(to bottom, #5ac0e6, #1e20b0);
+    padding: 10px;
+    margin: 0;
 }
 
+/*button option */
 button {
     text-align: center;
     width: 55px;
@@ -45,6 +46,7 @@ button:hover{
 }
 
 
+/*headin and font customisation */
 h1 {
     font-size: 40px;
     
@@ -69,7 +71,7 @@ h3 {
 }
 
 h4 {
-    font-size: 14px;
+    font-size: 18px;
     color: black;
 }
 
@@ -77,15 +79,15 @@ p {
     font-size: 16px;
 }
 
-.sidebox {
 
+/*Side box (box on left with options)*/
+.sidebox {
     width: 20%;
     position: fixed;
     z-index: 2;
     height: 100%;
     overflow: auto;
-    background-color: #a8a8a8
-    
+    background-color: #fa3246
 }
 
 .sidebox a {
@@ -96,26 +98,37 @@ p {
 }
 
 .sidebox a.active {
-    background-color: #04AA6D;
+    background-color: #8a010f;
     color: white;
 }
 .sidebox a:hover:not(.active) {
-    background-color: #555;
+    background-color: #8a010f;
     color: white;
 }
 
+
+/*Main box customisation (on the right)*/
 
 .mainbox{
     float:right;
     width: 80%;
     padding-left:20px;
+
 }
 
-.box_setup{
-    background-color:ghostwhite;
-    padding: 20px;
-    margin-top:20px;
+.box_Password {
+    text-size-adjust: initial;
+    background-color: lightgrey;
+    width: 25%;
+    border: 7px black;
+    padding: 9px;
+    margin: 9px;
+}
 
+.box_setup {
+    background-color: #FAFDE4;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 .row::after
@@ -131,61 +144,45 @@ p {
     padding:5px;
 }
 
+/*Option menu*/
 
-/*This is all for the nav bar movement
-.content {
-    padding: 16px;
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
 }
 
 
-
-ends gere*/
-
-
-
-/*
-
-@media screen and (max-width: 800px) {
-    .sidebox {
-        float: left;
-        width: 100%;
-    }
-
-    .mainbox {
-        float: left;
-        width: 100%;
-        padding-left: 20px;
-    }
-
-    .column { 
-        float: left;
-        width: 33%;
-        padding: 5px;
-    }
+/*style the items (options), including the selected item:*/
+.select-items div, .select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
 }
 
-@media screen and (max-width: 600px) {
-    .sidebox {
-        float: left;
-        width: 100%;
-    }
-
-    .mainbox {
-        float: left;
-        width: 100%;
-        padding-left: 20px;
-    }
-
-    .column { 
-        float: left;
-        width: 50%;
-        padding: 5px;
-    }
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
 }
-*/
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
