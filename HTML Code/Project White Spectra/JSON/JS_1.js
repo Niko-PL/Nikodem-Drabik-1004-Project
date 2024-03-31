@@ -3,14 +3,16 @@
 //let is local
 //var is gloabl
 
-var Letter = /^[a-z]+$/;      //all letters a-z
+
+
+var Letter = /^[a-z]*$/;      //all letters a-z (global to be accessed by both functuons) 
 
 
 function Password_Option1(Pass_Split) {
 
-    let check_Sum = 0;   //little initiator 
+    let check_Sum = 0;   //little letter initiator 
 
-    if (Letter.test(Pass_Split[0])) {
+    if (Letter.test(Pass_Split[0])) {       //checks if the piece of data is in Letter variable
         Pass_Split[0] = Pass_Split[0].toUpperCase();
     }
 
@@ -22,10 +24,10 @@ function Password_Option1(Pass_Split) {
             Pass_Split[i] = Pass_Split[i].toUpperCase();
 
 
-            check_Sum = 0 
+            check_Sum = 0;
         }
 
-        else if (Pass_Split[i] == " ") {
+        else if (Pass_Split[i] == " ") {    //if space make it _
             Pass_Split[i] = "_";
             console.log(Pass_Split[i]);
             check_Sum = 1;
@@ -34,10 +36,62 @@ function Password_Option1(Pass_Split) {
     }
     alert(Pass_Split);
 
-    Pass_Split.toString()
+    Pass_Split.toString();
+
+    return Pass_Split.join("");
+}
+
+
+function Password_Option2(Pass_Split) {
+
+
+    // i=! L=1 O=0 E=3 A=@ b=6  S=$
+    var Special_Letters = /^[ILOEABS]*$/;
+    
+
+    var Special_Letters_List = ["I", "L", "O", "E", "A", "B", "S"];
+    var Special_Characters_List = ["!", "1", "0", "3", "@", "6", "$"];
+    let check_Sum = 0;   //little letter initiator 
+
+    if (Letter.test(Pass_Split[0])) {       //checks if the piece of data is in Letter variable
+        Pass_Split[0] = Pass_Split[0].toUpperCase();
+    }
+
+    for (let i = 0; i < Pass_Split.length; i++) {
+
+
+        if (check_Sum == 1 && Letter.test(Pass_Split[i])) {
+            //if previous string was a space and this time it is a letter
+            Pass_Split[i] = Pass_Split[i].toUpperCase();
+
+
+            check_Sum = 0;
+        }
+
+        else if (Pass_Split[i] == " ") {    //if space make it _
+            Pass_Split[i] = "_";
+            console.log(Pass_Split[i]);
+            check_Sum = 1;
+        }
+
+        if (Special_Letters.test(Pass_Split[i].toUpperCase())) {   //test if letter is to be changed for soemthing
+            for (let y = 0; y < Special_Letters_List.length; y++) {
+                if (Pass_Split[i].toUpperCase() == Special_Letters_List[y]) {
+                    Pass_Split[i] = Special_Characters_List[y];
+                }
+            }
+        }
+
+
+    }
+    alert(Pass_Split);
+
+    Pass_Split.toString();
 
     return Pass_Split.join("")
+
 }
+
 
 function Password_Button() {
 

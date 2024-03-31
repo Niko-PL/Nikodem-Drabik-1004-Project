@@ -248,20 +248,44 @@
         <div class="box_setup">
             <section id="Password">
                 <h2 id="Password">Password Creator</h2>
-
                 <h3>Bellow Input A piece of information meaningfull to you and a number to generate a Strong Password</h3>
-                <p>Some Examples of meainingfull information are:</p>
-                <p>Reletive or Animal name</p>
-                <p>Place of Birth or Name of Hospital</p>
-                <p>HomeTown</p>
-                <p>Favourite Teacher Name</p>
+                <div class="row">
+                    <div class="paragraph_left">
 
-                <h3>Relevent numbers can be:</h3>
-                <p>Lucky Number</p>
-                <p>Date of Birth of first child/grandchild</p>
-                <p>Reletives or Animals Date of Birth</p>
-                <p>Date of beggining or ending a school</p>
+                        <h4>Some Examples of meainingfull information are:</h4>
+                        <p>Reletive or Animal name</p>
+                        <p>Place of Birth or Name of Hospital</p>
+                        <p>HomeTown</p>
+                        <p>Favourite Teacher Name</p>
+                    </div>
 
+                    <div class="paragraph_right">
+                        <h4>Relevent numbers can be:</h4>
+                        <p>Lucky Number</p>
+                        <p>Date of Birth of first child/grandchild</p>
+                        <p>Reletives or Animals Date of Birth</p>
+                        <p>Date of beggining or ending a school</p>
+                    </div>
+                </div>
+
+                <hr class="dashed" />
+                
+                <h3>Pick a scrambling method</h3>
+                <div class="row">
+                    <div class="paragraph_left">
+                        <h4>Basic:</h4>
+                        <p> This uses a snake case scrambling method meaing it adds _ and makes letters capitalised</p>
+                        <p> Here is an example:</p>
+                        <p> Dog is sad = Dog_Is_Sad</p>
+                    </div>
+
+                    <div class="paragraph_right">
+                        <h4>Extreme:</h4>
+                        <p> This uses a scrambling method wich uses the basic algorithm and also substitutes letters for other symbols or numbers</p>
+                        <p> Here is an example:</p>
+                        <p> Dog is sad = D0g_!$_$@d</p>
+                    </div>
+                </div>
                 <div class="custom-selct">
                     <select id="User_Encryption">
                         <option value="1" selected="selected">Baseic</option>
@@ -270,15 +294,16 @@
                 </div>
 
                 <br />
-                <br />
-                <label for="User_Input">Password:</label>
+
+                <h4>Password:</h4>
+
                 <input type="text" id="User_Input" placeholder="Type Data Here" />
 
                 <button id="Button1" onclick="Password_Button()">Enter</button>
                 <br />
 
                 <h4> Password Generated:</h4>
-                <div class=" = box_Password">
+                <div class="box_Password">
                     <p id="User_Output"></p>
                 </div>
             </section>
