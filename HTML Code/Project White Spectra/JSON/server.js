@@ -32,7 +32,7 @@ function Password_Option1(Pass_Split) {
             console.log(Pass_Split[i]);
             check_Sum = 1;
         }
-       
+
     }
     alert(Pass_Split);
 
@@ -47,7 +47,7 @@ function Password_Option2(Pass_Split) {
 
     // i=! L=1 O=0 E=3 A=@ b=6  S=$
     var Special_Letters = /^[ILOEABS]*$/;
-    
+
 
     var Special_Letters_List = ["I", "L", "O", "E", "A", "B", "S"];
     var Special_Characters_List = ["!", "1", "0", "3", "@", "6", "$"];
@@ -104,16 +104,24 @@ function Password_Button() {
 
     var Pass_Split = String_Input.split("");        //split user input into array to do sting manipulation
 
-    if (Option == 1) {
-        var Password_Encrypt = Password_Option1(Pass_Split);
+    
+
+    if (Pass_Split.length >= 10)
+    {
+
+        var Pass_Split = String_Input.split("");        //split user input into array to do sting manipulation
+        if (Option == 1) {
+            var Password_Encrypt = Password_Option1(Pass_Split);
+        }
+        else if (Option == 2) {
+            var Password_Encrypt = Password_Option2(Pass_Split);
+        }
+
+        document.getElementById("User_Output").innerHTML = Password_Encrypt;   //address is sent out
     }
-    else if (Option == 2) {
-        var Password_Encrypt = Password_Option2(Pass_Split);
+    else {
+        document.getElementById("User_Output").innerHTML = "Password Lenght must be more than 10 characters";   //address is sent out
     }
-
-    document.getElementById("User_Output").innerHTML = Password_Encrypt;   //address is sent out
-
-
 
 
 
@@ -121,7 +129,7 @@ function Password_Button() {
 
 function Memorable_Button() {
 
-    
+
 
     const Website_Name = document.getElementById("Website_Name");   //address is stored
 
@@ -140,15 +148,15 @@ function Memorable_Button() {
         };
 
 
-        const SEND = JSON.stringify(User_Data);
-        console.log(SEND)
 
-        /*
-        const fs = require("fs");       //importing fs
+        
+        //var fs = require("fs")       //importing fs
 
         const User_Data_JSON = JSON.stringify(User_Data);  //turn to json
         alert(User_Data_JSON);
-
+        //alert(User_Data.Website)      //only website
+        
+        /*
 
                 //write to file
         fs.write("MemorableData.json", User_Data_JSON, "utf-8", (error) => {
@@ -157,8 +165,8 @@ function Memorable_Button() {
             }
             console.log("Data Saved :)")
         });
+        
         */
-
     }
 
 

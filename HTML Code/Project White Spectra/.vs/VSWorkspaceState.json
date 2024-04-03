@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\CSS",
-    "\\JSON",
-    "\\JSON\\Node1",
-    "\\JSON\\Node1\\Node1"
+    "\\JSON"
   ],
-  "SelectedNode": "\\JSON\\Node1\\Node1\\server.js",
+  "SelectedNode": "\\JSON\\JS_1.js",
   "PreviewInSolutionExplorer": false
 }
