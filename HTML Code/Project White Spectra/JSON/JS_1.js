@@ -119,3 +119,43 @@ function Password_Button() {
 
 }
 
+function Memorable_Button() {
+
+    const fs = require("fs");       //importing fs
+
+    const Website_Name = document.getElementById("Website_Name");   //address is stored
+
+    var Website_String = Website_Name.value.toString(); //converted
+
+    const Memorable_Data = document.getElementById("Memorable_Data");   //address is stored
+
+    var Memorable_String = Memorable_Data.value.toString();
+
+
+    if (Website_String.length != 0 && Memorable_String.length != 0) {       //both need to have data
+
+        const User_Data = {             //creating an object to save
+            Website: Website_String,
+            Memorable: Memorable_String,
+        }
+
+        const User_Data_JSON = JSON.stringify(User_Data);  //turn to json
+        alert(User_Data_JSON);
+
+
+                //write to file
+        fs.write("MemorableData.json", User_Data_JSON, (error) => {
+            if (error) {
+                console.log("Failed to save Memorable to MemorableData.json");
+
+                throw error;
+            }
+            console.log("Data Saved :)")
+        });
+
+
+    }
+
+
+
+}
