@@ -108,7 +108,7 @@ function Password_Button() {
 
     
 
-    if (Pass_Split.length >= 10)
+    if (Pass_Split.length >= 12)
     {
 
         var Pass_Split = String_Input.split("");        //split user input into array to do sting manipulation
