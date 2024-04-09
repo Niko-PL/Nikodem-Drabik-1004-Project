@@ -12,10 +12,10 @@
 
 <body>
 
-  
+
     <div class="sidebox" id="navbar">
 
-        <h3>Links to parts of Website</h3>
+        <h4>Links to parts of Website</h4>
         <nav>
             <a href="#Socials">Socials</a>
             <br />
@@ -32,6 +32,8 @@
             <a href="#Password">Password Creator</a>
             <br />
             <a href="#Memorable">Memorable Data</a>
+            <br />
+            <a href="#MemorableGet">Memorable Retriever</a>
             <br />
         </nav>
 
@@ -246,7 +248,6 @@
 
 
 
-
         <div class="box_setup">
             <section id="Password">
                 <h2 id="Password">Password Creator</h2>
@@ -306,7 +307,7 @@
 
                 <h4> Password Generated:</h4>
                 <div class="box_Password">
-                    <p id="User_Output"></p>
+                    <p type ="text" id="User_Output"></p>
                 </div>
             </section>
         </div> <!class="box_setup 1">
@@ -314,9 +315,22 @@
 
 
         <div class="box_setup">
+            <section id="UniqueID">
+                <h2>Enter Unique ID</h2>
+
+                <h4>Unique UserName:</h4>
+                <input type="text" id="Unique_User" placeholder="Type Website Name Here" />
+
+                <h4>Unique Identifier:</h4>
+                <input type="text" id="Unique_ID" placeholder="Type Unique Identifier Here" />
+
+            </section>
+        </div> <!class="box_setup 1">
+
+        <div class="box_setup">
             <section id="Memorable">
 
-                <h2>Memorable Identifier Creator</h2>
+                <h2>Memorable Password Hint Creator</h2>
                 <h3>What is it?</h3>
                 <p> In this section you can enter a word or phrase that can help you remember what your password is for a specific website </p>
 
@@ -327,19 +341,197 @@
                 <h4>Memoramble Identifier:</h4>
 
                 <input type="text" id="Memorable_Data" placeholder="Type Memorable Data Here" />
-                <button id="Button2" onclick="Memorable_Button()">Enter</button>
+                <button id="SaveButtton">Enter</button>
+
+                <br />
+                <br />
+
+                <hr class="dashed" />
+
+                <section id="MemorableGet">
+
+                    <h2>Memorable Hint Retriever</h2>
+                    <h3>What is it?</h3>
+                    <p> In this section you can retrieve your Memorable Id for websited</p>
+
+                    <h4>Website:</h4>
+
+                    <input type="text" id="Website_Name_Find" placeholder="Type Website Name Here" />
+
+                    <button id="FindButton">Enter</button>
+
+                    <h4> Hint Retrieved:</h4>
+                    <div class="box_Password">
+                        <p id="Hint_Get"></p>
+                    </div>
+
+
+                    <br />
+                    <br />
+
+                    <hr class="dashed" />
+
+                    <section id="MemorableUpdate">
+
+                        <h2>Memorable Hint Updater</h2>
+                        <h3>What is it?</h3>
+                        <p> In this section you can Update your Memorable Id for websites</p>
+
+                        <h4>Website:</h4>
+
+                        <input type="text" id="Website_Name_Update" placeholder="Type Website Name Here" />
+
+                        <h4>Memorable Data To be Updated:</h4>
+
+                        <input type="text" id="Memorable_Data_Update" placeholder="Type Memorable Data Here" />
+
+                        <button id="UpdateButton">Enter</button>
+
+
+                    </section>
+                </section>
 
             </section>
 
+
         </div> <!class="box_setup 1">
+
+
     </div> <!class="mainbox">
 
+                                
+    <script type="module">      
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB5EHER_clXshWoB9gmgag7G6wwcB0E0pc",
+            authDomain: "usermemorable.firebaseapp.com",
+            databaseURL: "https://usermemorable-default-rtdb.firebaseio.com",
+            projectId: "usermemorable",
+            storageBucket: "usermemorable.appspot.com",
+            messagingSenderId: "765194633095",
+            appId: "1:765194633095:web:f7c57a6914ce129582dd22"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        const db = getDatabase(app);
+
+
+        function Memorable_Button() {
+
+            alert("HERE");
+
+            
+            const Website_Name = document.getElementById("Website_Name");   //address is stored
+            let Website_String = Website_Name.value.toString(); //converted
+
+            const Memorable_Data = document.getElementById("Memorable_Data");   //user inputed hint
+            let Memorable_String = Memorable_Data.value.toString();
+
+
+            const User_Password = document.getElementById("User_Output").innerHTML;   // user generated password (not converted as already string)
+            const User_Input = document.getElementById("User_Input");    //user data for generated password
+
+            const Unique_User = document.getElementById("Unique_User");   //address is stored
+            const Unique_ID = document.getElementById("Unique_ID");   //address is stored
+            
+            let User_Input_String = User_Input.value.toString();
+
+
+            if (Memorable_String.includes(User_Password.toString()) && User_Password.toString()!= 0) {      //to see if hint hasee  and elimibnate null
+                alert("The hint cannot be the same as your new generated password");
+            }
+            else if (Memorable_String.includes(User_Input_String) && User_Input_String!=0) {       //esure password is not directly in the hint
+                alert("The hint cannot be the same as your data that you have inputed");
+            }
+            else {
+                if (Unique_User.value.toString().length < 1 || Unique_ID.value.toString().length < 1){ 
+                    alert("Please fill in Unqiue ID feild")
+                }
+
+                else if (Website_String.length != 0 && Memorable_String.length != 0) {       //both need to have data in
+
+                    alert("DAD");
+
+                    set(ref(db, "MemorableInfo/" + Unique_User.value + Unique_ID.value + "/" + Website_Name.value), {
+                        Memorable_Data: Memorable_Data.value
+                    })
+                        .then(() => {
+                            alert("Memorable Data Saved");
+                        })
+                        .catch((error) => {
+                            alert("Memorable Data Failed to Save");
+                            console.log(error);
+                        })
+                }
+            }
+        }
+
+        function Find_Memorable() {
+            alert("EHER")
+            const Website_Name = document.getElementById("Website_Name_Find");   //address is stored
+            const dbFind = ref(db);
+            if (Unique_User.value.toString().length < 1 || Unique_ID.value.toString().length < 1) {
+                alert("Please fill in Unqiue ID feild")
+            }
+            else {
+                get(child(dbFind, "MemorableInfo/" + Unique_User.value +  Unique_ID.value +"/" + Website_Name.value)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        document.getElementById("Hint_Get").innerHTML = snapshot.val().Memorable_Data;
+                    }
+                    else {
+                        alert("Failed to Find Data")
+                    }
+                })
+            }
+        }
+
+        function Update_Memorable() {
+
+            alert("Here")
+            const Website_Name_Update = document.getElementById("Website_Name_Update");   //address is stored
+
+            let Website_String = Website_Name_Update.value.toString(); //converted
+
+            const Memorable_Data_Update = document.getElementById("Memorable_Data_Update");   
+
+            let Memorable_String = Memorable_Data_Update.value.toString();
+
+
+            if (Website_String.length != 0 && Memorable_String.length != 0) {       //both need to have data in
+                alert("Here2")
+                update(ref(db, "MemorableInfo/" + Website_Name_Update.value), {
+                    Memorable_Data: Memorable_Data_Update.value
+                })
+                    .then(() => {
+                        alert("Memorable Data Updated");
+                    })
+                    .catch((error) => {
+                        alert("Memorable Data Failed to Update");
+                        console.log(error);
+                    })
+            }
+
+        }
+
+        //button clicker
+        SaveButtton.addEventListener('click', Memorable_Button);
+        FindButton.addEventListener('click', Find_Memorable);
+        UpdateButton.addEventListener('click', Update_Memorable);
+    </script>
 
 
 
 
 </body>
+
+
+
 
 </html>
