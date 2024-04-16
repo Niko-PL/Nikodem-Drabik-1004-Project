@@ -157,4 +157,31 @@ function Password_Button() {
             }
 
         }
+
+
+        //html for code abovue to paste in MIC/MIR section
+
+                    <br />
+                    <br />
+
+                    <hr class="dashed" />
+
+                    <section id="MemorableUpdate">
+
+                        <h2>Memorable Hint Updater</h2>
+                        <h3>What is it?</h3>
+                        <p> In this section you can Update your Memorable Id for websites</p>
+
+                        <h4>Website:</h4>
+
+                        <input type="text" id="Website_Name_Update" placeholder="Type Website Name Here" />
+
+                        <h4>Memorable Data To be Updated:</h4>
+
+                        <input type="text" id="Memorable_Data_Update" placeholder="Type Memorable Data Here" />
+
+                        <button id="UpdateButton">Enter</button>
+
+
+                    </section>
         */
