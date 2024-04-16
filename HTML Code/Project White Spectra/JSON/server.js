@@ -128,3 +128,33 @@ function Password_Button() {
 
 
 }
+
+
+/*  // update memorable function for html
+        function Update_Memorable() {
+
+            const Website_Name_Update = document.getElementById("Website_Name_Update");   //address is stored
+
+            let Website_String = Website_Name_Update.value.toString(); //converted
+
+            const Memorable_Data_Update = document.getElementById("Memorable_Data_Update");   
+
+            let Memorable_String = Memorable_Data_Update.value.toString();
+
+
+            if (Website_String.length != 0 && Memorable_String.length != 0) {       //both need to have data in
+                alert("Here2")
+                update(ref(db, "MemorableInfo/" + Website_Name_Update.value), {
+                    Memorable_Data: Memorable_Data_Update.value
+                })
+                    .then(() => {
+                        alert("Memorable Data Updated");
+                    })
+                    .catch((error) => {
+                        alert("Memorable Data Failed to Update");
+                        console.log(error);
+                    })
+            }
+
+        }
+        */

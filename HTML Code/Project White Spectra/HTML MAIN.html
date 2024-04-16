@@ -72,9 +72,7 @@
 
                 </div><!class="row">
 
-                <div>
-                    <p>(if link dosnt show press the name of website)</p>
-                </div>
+
             </section>
         </div> <!class="box_setup">
 
@@ -109,9 +107,7 @@
                     <a class="column" href="https://poczta.o2.pl/"> <img src="IMAGES/o2 poczta.png" alt="o2 Poczta" style="width:100px;height:100px;"></a>
                 </div><!class="row">
 
-                <div>
-                    <p>(if link dosnt show press the name of website)</p>
-                </div>
+
             </section>
         </div> <!class="box_setup">
 
@@ -157,9 +153,7 @@
 
                     <a class="column" href="https://www.waitrose.com/"> <img src="IMAGES/Waitrose.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
                 </div><!class="row">
-                <div>
-                    <p>(if link dosnt show press the name of website)</p>
-                </div>
+
             </section>
         </div> <!class="box_setup">
 
@@ -168,49 +162,46 @@
             <section id="Banks">
                 <h2>Banks</h2>
 
-                <a class="column" href="https://www.lloydsbank.com/"> <img src="IMAGES/LLoyds Bank.png" alt="Facebook" style="width:100px;height:100px;"></a>
+                <div class="row">
+                    <a class="column" href="https://www.lloydsbank.com/"> <img src="IMAGES/LLoyds Bank.png" alt="Facebook" style="width:100px;height:100px;"></a>
 
 
 
-                <a class="column" href="https://www.halifax.co.uk/"> <img src="IMAGES/Halifax.png" alt="Youtube" style="width:100px;height:100px;"></a>
+                    <a class="column" href="https://www.halifax.co.uk/"> <img src="IMAGES/Halifax.png" alt="Youtube" style="width:100px;height:100px;"></a>
 
 
 
-                <a class="column" href="https://www.barclays.co.uk/"> <img src="IMAGES/Barclays.png" alt="Gmail" style="width:100px;height:100px;"></a>
+                    <a class="column" href="https://www.barclays.co.uk/"> <img src="IMAGES/Barclays.png" alt="Gmail" style="width:100px;height:100px;"></a>
 
 
 
-                <a class="column" href="https://www.hsbc.co.uk/"> <img src="IMAGES/hsbc.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
+                    <a class="column" href="https://www.hsbc.co.uk/"> <img src="IMAGES/hsbc.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
 
+                </div><!class="row">
 
-                <div>
-                    <p>(if link dosnt show press the name of website)</p>
-                </div>
             </section>
         </div> <!class="box_setup">
 
         <div class="box_setup">
             <section id="Weather">
                 <h2>Weather</h2>
-
-                <a class="column" href="https://www.bbc.co.uk/weather"> <img src="IMAGES/BBC weather.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
-
-
-
-                <a class="column" href="https://www.accuweather.com"> <img src="IMAGES/Accu_Weather.png" alt="Youtube" style="width:100px;height:100px;"></a>
+                
+                <div class="row">
+                    <a class="column" href="https://www.bbc.co.uk/weather"> <img src="IMAGES/BBC weather.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
 
 
 
-                <a class="column" href="https://skyandtelescope.org/"> <img src="IMAGES/sky&scope.png" alt="Gmail" style="width:100px;height:100px;"></a>
+                    <a class="column" href="https://www.accuweather.com"> <img src="IMAGES/Accu_Weather.png" alt="Youtube" style="width:100px;height:100px;"></a>
 
 
 
-                <a class="column" href="https://burzowo.info/"> <img src="IMAGES/Burzowo.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
+                    <a class="column" href="https://skyandtelescope.org/"> <img src="IMAGES/sky&scope.png" alt="Gmail" style="width:100px;height:100px;"></a>
 
 
-                <div>
-                    <p>(if link dosnt show press the name of website)</p>
-                </div>
+
+                    <a class="column" href="https://burzowo.info/"> <img src="IMAGES/Burzowo.png" alt="BBC Weater" style="width:100px;height:100px;"></a>
+                </div><!class="row">
+
             </section>
         </div> <!class="box_setup 1">
 
@@ -364,31 +355,7 @@
                     <div class="box_Password">
                         <p id="Hint_Get"></p>
                     </div>
-
-
-                    <br />
-                    <br />
-
-                    <hr class="dashed" />
-
-                    <section id="MemorableUpdate">
-
-                        <h2>Memorable Hint Updater</h2>
-                        <h3>What is it?</h3>
-                        <p> In this section you can Update your Memorable Id for websites</p>
-
-                        <h4>Website:</h4>
-
-                        <input type="text" id="Website_Name_Update" placeholder="Type Website Name Here" />
-
-                        <h4>Memorable Data To be Updated:</h4>
-
-                        <input type="text" id="Memorable_Data_Update" placeholder="Type Memorable Data Here" />
-
-                        <button id="UpdateButton">Enter</button>
-
-
-                    </section>
+   
                 </section>
 
             </section>
@@ -396,8 +363,11 @@
 
         </div> <!class="box_setup 1">
 
+        <br />
+
 
     </div> <!class="mainbox">
+    
 
                                 
     <script type="module">      
@@ -457,7 +427,6 @@
 
                 else if (Website_String.length != 0 && Memorable_String.length != 0) {       //both need to have data in
 
-                    alert("DAD");
 
                     set(ref(db, "MemorableInfo/" + Unique_User.value + Unique_ID.value + "/" + Website_Name.value), {
                         Memorable_Data: Memorable_Data.value
@@ -474,7 +443,7 @@
         }
 
         function Find_Memorable() {
-            alert("EHER")
+
             const Website_Name = document.getElementById("Website_Name_Find");   //address is stored
             const dbFind = ref(db);
             if (Unique_User.value.toString().length < 1 || Unique_ID.value.toString().length < 1) {
@@ -492,38 +461,12 @@
             }
         }
 
-        function Update_Memorable() {
-
-            alert("Here")
-            const Website_Name_Update = document.getElementById("Website_Name_Update");   //address is stored
-
-            let Website_String = Website_Name_Update.value.toString(); //converted
-
-            const Memorable_Data_Update = document.getElementById("Memorable_Data_Update");   
-
-            let Memorable_String = Memorable_Data_Update.value.toString();
-
-
-            if (Website_String.length != 0 && Memorable_String.length != 0) {       //both need to have data in
-                alert("Here2")
-                update(ref(db, "MemorableInfo/" + Website_Name_Update.value), {
-                    Memorable_Data: Memorable_Data_Update.value
-                })
-                    .then(() => {
-                        alert("Memorable Data Updated");
-                    })
-                    .catch((error) => {
-                        alert("Memorable Data Failed to Update");
-                        console.log(error);
-                    })
-            }
-
-        }
+        
 
         //button clicker
         SaveButtton.addEventListener('click', Memorable_Button);
         FindButton.addEventListener('click', Find_Memorable);
-        UpdateButton.addEventListener('click', Update_Memorable);
+        //UpdateButton.addEventListener('click', Update_Memorable); //for future
     </script>
 
 

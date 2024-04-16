@@ -27,7 +27,7 @@ input[type=text]{
 
 
 body {
-    background-image: linear-gradient(to bottom, #5ac0e6, #1e20b0);
+    background-image: linear-gradient(to bottom, #dbd8e3, #2a2438);
     padding: 10px;
     margin: 0;
 }
@@ -85,13 +85,13 @@ p {
 
 /*Side box (box on left with options)*/
 .sidebox {
-    font-size:17px;
+    font-size: 17px;
     width: 20%;
     position: fixed;
     z-index: 2;
     height: 95%;
     overflow: auto;
-    background-color: #fa3246
+    background-color: #5c5470
 }
 
 .sidebox a {
@@ -102,11 +102,11 @@ p {
 }
 
 .sidebox a.active {
-    background-color: #8a010f;
+    background-color: #332d40;
     color: white;
 }
 .sidebox a:hover:not(.active) {
-    background-color: #8a010f;
+    background-color: #332d40;
     color: white;
 }
 
@@ -131,7 +131,7 @@ p {
 }
 
 .box_setup {
-    background-color: #FAFDE4;
+    background-color: #c2b5e6;
     padding: 20px;
     margin-top: 20px;
 }
